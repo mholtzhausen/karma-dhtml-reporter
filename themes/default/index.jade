@@ -1,0 +1,21 @@
+mixin testBlock(tests)
+    ul.tests
+        each test in tests
+            li.test= test.description
+
+mixin suiteBlock(suite)
+    ul.suites
+        each thisSuite,suiteName in suite
+            li.suite= suiteName
+            if thisSuite.suites
+                +suiteBlock(thisSuite.suites)
+
+doctype html
+html
+    head
+        title Test Report
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.0/semantic.min.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.0/semantic.min.js')
+    body
+        //=JSON.stringify(suites)
+        +suiteBlock(data.suites)

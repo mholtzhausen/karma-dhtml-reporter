@@ -1,0 +1,28 @@
+{
+  "name": "karma-dhtml-reporter",
+  "version": "0.0.1",
+  "description": "A better html reporter for karma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nemesarial/karma-dhtml-reporter.git"
+  },
+  "keywords": [
+    "karma-plugin",
+    "karma-reporter"
+  ],
+  "author": "Mark Holtzhausen <nemesarial@gmail.com>",
+  "license": "Apache2",
+  "bugs": {
+    "url": "https://github.com/Nemesarial/karma-dhtml-reporter/issues"
+  },
+  "homepage": "https://github.com/Nemesarial/karma-dhtml-reporter",
+  "dependencies": {
+    "jade": "^1.9.1",
+//    "open": "0.0.5",
+    "semantic-ui": "^1.8.1"
+  }
+}

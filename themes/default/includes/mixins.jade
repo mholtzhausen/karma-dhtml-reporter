@@ -1,0 +1,46 @@
+mixin testBlock(tests)
+    div.ui.list
+        each test in tests
+            a.item
+                div.header
+                    if test.success
+                        div.ui.green.empty.circular.label.mini
+                        //| &nbsp;
+                        //span.ui.label.green.mini= test.time+"ms"
+                    else
+                        div.ui.red.empty.circular.label.mini
+                        //span.ui.label.red.mini Failed
+                    | &nbsp;&nbsp;
+                    = test.description
+                if test.log.length>0
+                    div.ui.secondary.segment
+                        pre= test.log.join('\n\n')
+
+
+mixin suiteBlock(suite)
+    div.ui.styled.fluid.accordion
+        each thisSuite,suiteName in suite
+            div(class= thisSuite.success?'':'active').title
+                if thisSuite.success
+                    div.ui.green.empty.circular.label
+                else
+                    div.ui.red.empty.circular.label
+                | &nbsp;&nbsp;
+                = suiteName
+            div(class= thisSuite.success?'':'active').content
+                if thisSuite.suites
+                    +suiteBlock(thisSuite.suites)
+                if thisSuite.tests
+                    +testBlock(thisSuite.tests)
+
+
+
+mixin browserBlock(browserName,browser)
+    h1= browserName
+    div.ui.raised.segment
+        if browser.success
+            a.ui.right.ribbon.green.label Success
+        else
+            a.ui.right.ribbon.red.label Failed
+        p
+        +suiteBlock(browser.suites)
