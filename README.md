@@ -13,6 +13,9 @@ This repo is brand new.. I will improve it over time.
         config.set({
 
               ...
+            dhtmlReporter: {
+                'outputFile' : 'output/file/location/report.html'
+            },
 
             reporters: ['DHTML'],
 
@@ -27,3 +30,4 @@ This repo is brand new.. I will improve it over time.
 
 ## Screenshot
 ![Screenshot](http://ibin.co/1pokkqMPY3Ua)
+
