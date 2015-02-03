@@ -4,7 +4,8 @@ var fs = require('fs');
 var open = require('open');
 
 var options = {
-    outputFile: 'dhtml.html'
+    outputFile: 'dhtml.html',
+    exclusiveSections: true
 }
 
 
@@ -59,11 +60,21 @@ var DHTMLReporter = function (logger, config, basePath) {
             this.setSuccess(browsers[browser], browser);
         }
         console.log('DHTML report wrote to ' + basePath+options.outputFile);
-        fs.writeFile(basePath+options.outputFile, jade.renderFile(__dirname+'/themes/default/index2.jade', {
+        fs.writeFile(basePath+options.outputFile, jade.renderFile(__dirname+'/themes/default/index.jade', {
             summary: result,
-            data   : browsers
+            data   : browsers,
+            config : options,
+            accordionConfig: this.getAccordionConfig()
         }));
         //open(options.outputFile);
+    };
+
+    this.getAccordionConfig=function(){
+        var cfg={};
+        cfg['close nested']=true;
+        cfg['exclusive'] = !! options.exclusiveSections;
+
+        return JSON.stringify(cfg);
     };
 
     this.setSuccess = function (collection, collectionName, prefix) {

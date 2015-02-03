@@ -1,21 +1,23 @@
-mixin testBlock(tests)
-    ul.tests
-        each test in tests
-            li.test= test.description
-
-mixin suiteBlock(suite)
-    ul.suites
-        each thisSuite,suiteName in suite
-            li.suite= suiteName
-            if thisSuite.suites
-                +suiteBlock(thisSuite.suites)
+include ./includes/mixins
 
 doctype html
 html
     head
         title Test Report
-        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.0/semantic.min.css')
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.0/semantic.min.js')
+        //link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.0/semantic.min.css')
+        //script(src='https://code.jquery.com/jquery-2.1.3.min.js')
+        //script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.0/semantic.min.js')
+
+        include ./includes/semantic.css.jade
+        include ./includes/styles
+
+        include ./includes/semantic.js
     body
-        //=JSON.stringify(suites)
-        +suiteBlock(data.suites)
+        div.container
+            each browser,browserName in data
+                br
+                +browserBlock(browserName,browser)
+        br
+        br
+        br
+    include ./includes/scripts

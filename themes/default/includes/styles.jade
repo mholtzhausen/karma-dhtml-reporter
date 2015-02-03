@@ -1,4 +1,9 @@
+
 style.
+    @font-face {
+        font-family: 'Icons';
+        src: url(https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/themes/basic/assets/fonts/icons.woff);
+    }
     .container {
         width: 768px;
         margin-left: auto;
@@ -15,4 +20,16 @@ style.
 
     .ui.accordion .active.title {
         background-color: #DDD !important;
+    }
+
+    .ui.list>.item{
+        padding: 0;
+        line-height: 0.8;
+    }
+
+    .segment > pre{
+        padding: 2px;
+        margin: 0px;
+        font-size: 0.9em;
+        -webkit-font-smoothing: antialiased;
     }

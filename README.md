@@ -1,8 +1,12 @@
 # karma-dhtml-reporter
 A better html reporter for karma
 
-## Disclaimer
-This repo is brand new.. I will improve it over time.
+## ChangeLog
+### 0.2.1
+- Added SemanticUi Icons to the stack
+- Icons for success/failure indicators on tests
+- `exclusiveSections` config setting
+- More Prominent error logging
 
 ## Install
 
@@ -14,7 +18,8 @@ This repo is brand new.. I will improve it over time.
 
               ...
             dhtmlReporter: {
-                'outputFile' : 'output/file/location/report.html'
+                'outputFile' : 'output/file/location/report.html',
+                'exclusiveSections': true
             },
 
             reporters: ['DHTML'],
@@ -27,6 +32,16 @@ This repo is brand new.. I will improve it over time.
             ]
         })
     }
+
+## Config
+### outputFile [dhtml.html]
+This indicates where you want the output file to be generated
+
+### exclusiveSections [true]
+If true, it only allows one section amidst its sibblings to be open at a given time.
+Disable to allow opening multiple sections.
+
+
 
 ## Screenshot
 ![Screenshot](http://ibin.co/1pokkqMPY3Ua)

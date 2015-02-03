@@ -1,20 +1,39 @@
 mixin testBlock(tests)
     div.ui.list
         each test in tests
-            a.item
-                div.header
+            div.item
+                | &nbsp;&nbsp;
+                div.description
                     if test.success
-                        div.ui.green.empty.circular.label.mini
-                        //| &nbsp;
-                        //span.ui.label.green.mini= test.time+"ms"
+                        i.checkmark.icon.green
                     else
-                        div.ui.red.empty.circular.label.mini
-                        //span.ui.label.red.mini Failed
-                    | &nbsp;&nbsp;
+                        i.remove.circle.icon.red
+
                     = test.description
-                if test.log.length>0
-                    div.ui.secondary.segment
-                        pre= test.log.join('\n\n')
+
+                    if test.log.length>0
+                        div.ui.primary.inverted.red.segment
+                            pre= test.log.join('\n\n')
+
+mixin testBlockOld(tests)
+    div.ui.list
+        each test in tests
+            a.item
+                //div.header
+                if test.success
+                    //div.ui.green.empty.circular.label.mini
+                    i.checkmark.icon.green
+                    //| &nbsp;
+                    //span.ui.label.green.mini= test.time+"ms"
+                else
+                    //div.ui.red.empty.circular.label.mini
+                    i.remove.circle.icon.red
+                    //span.ui.label.red.mini Failed
+                | &nbsp;&nbsp;
+                = test.description
+                    if test.log.length>0
+                        div.ui.secondary.segment
+                            pre= test.log.join('\n\n')
 
 
 mixin suiteBlock(suite)
