@@ -1,6 +1,8 @@
 # karma-dhtml-reporter
-A better html reporter for karma
 [![NPM](https://nodei.co/npm/karma-dhtml-reporter.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/karma-dhtml-reporter/)
+
+
+A better html reporter for karma
 
 ## ChangeLog
 ### 0.2.1
