@@ -1,5 +1,6 @@
 # karma-dhtml-reporter
 A better html reporter for karma
+[![NPM](https://nodei.co/npm/karma-dhtml-reporter.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/karma-dhtml-reporter/)
 
 ## ChangeLog
 ### 0.2.1
@@ -7,6 +8,8 @@ A better html reporter for karma
 - Icons for success/failure indicators on tests
 - `exclusiveSections` config setting
 - More Prominent error logging
+### 0.2.2
+- Added Badge
 
 ## Install
 
