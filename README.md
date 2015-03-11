@@ -5,6 +5,9 @@
 A better html reporter for karma
 
 ## ChangeLog
+### 0.2.5
+ - Fixed Error caused in recent karma version.
+
 ### 0.2.4
  - Added `openReportInBrowser` option to open the report in the browser after the test concludes.
 
