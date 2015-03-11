@@ -6,7 +6,7 @@ A better html reporter for karma
 
 ## ChangeLog
 ### 0.2.3
- - Fixed bug where in `singleRun` mode is off, it renders an aggregated list leading to incorrect
+ - Fixed bug where when `singleRun` mode is off, it renders an aggregated list leading to incorrect
 
 ### 0.2.2
  - Added Badge
