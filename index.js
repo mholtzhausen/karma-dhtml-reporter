@@ -60,12 +60,14 @@ var DHTMLReporter = function (logger, config, basePath) {
             this.setSuccess(browsers[browser], browser);
         }
         console.log('DHTML report wrote to ' + basePath+options.outputFile);
+        fs.unlinkSync(basePath+options.outputFile);
         fs.writeFile(basePath+options.outputFile, jade.renderFile(__dirname+'/themes/default/index.jade', {
             summary: result,
             data   : browsers,
             config : options,
             accordionConfig: this.getAccordionConfig()
         }));
+        browsers={};
         //open(options.outputFile);
     };
 
