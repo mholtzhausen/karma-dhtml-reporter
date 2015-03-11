@@ -4,18 +4,20 @@ var fs = require('fs');
 var open = require('open');
 
 var options = {
-    outputFile: 'dhtml.html',
-    exclusiveSections: true
+    outputFile         : 'dhtml.html',
+    exclusiveSections  : true,
+    openReportInBrowser: false
 }
 
 
 var DHTMLReporter = function (logger, config, basePath) {
     var specs = [];
-    //var suites = {};
     var browsers = {};
+    var openReport = true;
 
 
     options = _.defaults(config || {}, options);
+    console.log(options);
 
     this.onSpecComplete = function (browser, result) {
         var b = browsers;
@@ -59,22 +61,27 @@ var DHTMLReporter = function (logger, config, basePath) {
         for (var browser in browsers) {
             this.setSuccess(browsers[browser], browser);
         }
-        console.log('DHTML report wrote to ' + basePath+options.outputFile);
-        fs.unlinkSync(basePath+options.outputFile);
-        fs.writeFile(basePath+options.outputFile, jade.renderFile(__dirname+'/themes/default/index.jade', {
-            summary: result,
-            data   : browsers,
-            config : options,
+        console.log('DHTML report wrote to ' + basePath + options.outputFile);
+        fs.unlinkSync(basePath + options.outputFile);
+        fs.writeFile(basePath + options.outputFile, jade.renderFile(__dirname + '/themes/default/index.jade', {
+            summary        : result,
+            data           : browsers,
+            config         : options,
             accordionConfig: this.getAccordionConfig()
         }));
-        browsers={};
-        //open(options.outputFile);
+        browsers = {};
+        console.log(options.openReportInBrowser && openReport);
+        if (options.openReportInBrowser && openReport) {
+            console.log('Opening Output File in Browser');
+            open(basePath + options.outputFile);
+            openReport = false;
+        }
     };
 
-    this.getAccordionConfig=function(){
-        var cfg={};
-        cfg['close nested']=true;
-        cfg['exclusive'] = !! options.exclusiveSections;
+    this.getAccordionConfig = function () {
+        var cfg = {};
+        cfg['close nested'] = true;
+        cfg['exclusive'] = !!options.exclusiveSections;
 
         return JSON.stringify(cfg);
     };
@@ -120,7 +127,7 @@ var DHTMLReporter = function (logger, config, basePath) {
     };
 };
 
-DHTMLReporter.$inject = ['logger', 'config.dhtmlReporter','config.basePath'];
+DHTMLReporter.$inject = ['logger', 'config.dhtmlReporter', 'config.basePath'];
 
 
 module.exports = {

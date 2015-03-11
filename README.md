@@ -5,6 +5,9 @@
 A better html reporter for karma
 
 ## ChangeLog
+### 0.2.4
+ - Added `openReportInBrowser` option to open the report in the browser after the test concludes.
+
 ### 0.2.3
  - Fixed bug where when `singleRun` mode is off, it renders an aggregated list leading to incorrect
 
@@ -28,7 +31,8 @@ A better html reporter for karma
               ...
             dhtmlReporter: {
                 'outputFile' : 'output/file/location/report.html',
-                'exclusiveSections': true
+                'exclusiveSections': true,
+                'openReportInBrowser': false
             },
 
             reporters: ['DHTML'],
@@ -47,8 +51,11 @@ A better html reporter for karma
 This indicates where you want the output file to be generated
 
 ### exclusiveSections [true]
-If true, it only allows one section amidst its sibblings to be open at a given time.
+If true, it only allows one section amidst its siblings to be open at a given time.
 Disable to allow opening multiple sections.
+
+### openReportInBrowser [false]
+If true, it will open the generated report in your default browser. (uses `open` package from npm - check for supported platforms)
 
 
 
