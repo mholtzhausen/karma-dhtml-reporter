@@ -5,13 +5,15 @@
 A better html reporter for karma
 
 ## ChangeLog
+### 0.2.3
+- Fixed bug where in `singleRun` mode is off, it renders an aggregated list leading to incorrect
+### 0.2.2
+- Added Badge
 ### 0.2.1
 - Added SemanticUi Icons to the stack
 - Icons for success/failure indicators on tests
 - `exclusiveSections` config setting
 - More Prominent error logging
-### 0.2.2
-- Added Badge
 
 ## Install
 
