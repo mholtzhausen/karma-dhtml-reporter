@@ -60,6 +60,9 @@ Disable to allow opening multiple sections.
 ### openReportInBrowser [false]
 If true, it will open the generated report in your default browser. (uses `open` package from npm - check for supported platforms)
 
+### suppressOptionsLog [true]
+If false, it will log reporter options on initialize.
+
 
 
 ## Screenshot
