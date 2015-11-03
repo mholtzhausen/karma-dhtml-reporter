@@ -6,7 +6,8 @@ var open = require('open');
 var options = {
     outputFile: 'dhtml.html',
     exclusiveSections: true,
-    openReportInBrowser: false
+    openReportInBrowser: false,
+    suppressOptionsLog: true
 }
 
 
@@ -17,7 +18,10 @@ var DHTMLReporter = function (logger, config, basePath) {
 
 
     options = _.defaults(config || {}, options);
-    console.log(options);
+    if(!suppressOptionsLog){
+        console.log(options);
+    }
+   
 
     this.onSpecComplete = function (browser, result) {
         var b = browsers;
