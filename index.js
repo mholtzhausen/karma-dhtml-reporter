@@ -18,7 +18,7 @@ var DHTMLReporter = function (logger, config, basePath) {
 
 
     options = _.defaults(config || {}, options);
-    if(!suppressOptionsLog){
+    if(!options.suppressOptionsLog){
         console.log(options);
     }
    
