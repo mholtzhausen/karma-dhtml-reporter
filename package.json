@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Nemesarial/karma-dhtml-reporter",
   "dependencies": {
     "jade": "^1.9.1",
-    "lodash": "^3.0.1",
+    "lodash": "^4.17.5",
     "open": "0.0.5",
     "semantic-ui": "^1.8.1"
   }
