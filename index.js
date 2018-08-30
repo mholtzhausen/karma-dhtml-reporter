@@ -63,7 +63,7 @@ var DHTMLReporter = function (logger, config, basePath) {
         }
         var outFile=basePath+options.outputFile;
         console.log('DHTML report wrote to ' + outFile);
-        fs.writeFile(outFile, jade.renderFile(__dirname+'/themes/default/index.jade', {
+        fs.writeFileSync(outFile, jade.renderFile(__dirname+'/themes/default/index.jade', {
             summary: result,
             data   : browsers,
             config : options,
